@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NASA APOD</title>
+  <style>
+    /* Define a CSS class for the image and video elements */
+    .apod-media {
+      width: 55%; /* Set the width to 400px */
+      height: 55%; /* Set the height to 400px */
+      object-fit: cover;
+      margin-left:20%;
+      border:4px solid green;
+      border-radius: 12px;
+      margin-top:30px;
+       /* Crop the media to fit the dimensions */
+      
+    }
+    #text{
+        font-size:24px;
+        color:burlywood;
+        font-family: Snell Roundhand, cursive;
+        margin-left:10%;
+        width:40%;
+    }
+    .heading{
+        font-size:24px;
+        width:60%;
+        margin-left:20%;
+        color:burlywood;
+        font-family: Snell Roundhand, cursive;
+        margin-top:-20px;
+    }
+    #input{
+        margin-left:10%;
+        font-size:18px;
+        width:60%;
+    }
+    .info-container{
+      width:50%;
+      font-size:18px;
+      margin-left:10%;
+      color:burlywood;
+    }
+    body {
+    margin: 0;
+    padding: 0;
+    margin-right:20px;
+    background-image: url('apod.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+
+  }
+  nav {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    height:50px;
+    padding: 10px;
+    font-size:24px;
+    margin-top: -10px;
+    margin-left: -5px;
+    margin-right: 30px;
+    margin-bottom:-17px;
+  width:100%;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+  }
+  
+  nav li {
+    float: left;
+    
+  }
+  
+  nav li a {
+    display: block;
+    color: white; /* Text color */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+  }
+  
+  nav li a:hover {
+    background-color:teal; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+  }
+  
+  /* Optional: Style for the active page link */
+  nav li.active a {
+    background-color: #4CAF50; /* Background color for the active link */
+    color: #fff; /* Text color for the active link */
+  }
+  </style>
+</head>
+<body>
+  <div class="heading">
+    <h1><b>NASA Astronomy Picture of the Day</b></h1>
+  </div>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="nasa.html">NASA</a></li>
+    </ul>
+  </nav> 
+  
+  <div id="text"> 
+    <p>Enter a date in YYYY-MM-DD format to see the APOD image or video for that date.</p>
+  </div>
+  
+  <div id="input">
+    <input id="date-input" type="text" placeholder="YYYY-MM-DD">
+    <button id="submit-button" onclick="getAPOD()">Submit</button>
+  </div>
+
+  <div id="apod-container" class="apod-container">
+    <div class="image-container"></div>
+    <div class="info-container"></div>
+  </div>
+
+  <script>
+    const base_url = "https://api.nasa.gov/planetary/apod";
+    // Define the API key for the APOD service
+    const api_key = "VKdWyevsfvOcV6HZAgZdchUE1R1AHzA5H2ZeCtaQ";
+
+    // Define a function to get the APOD image and information for a given date
+    function getAPOD() {
+      // Get the date input from the user
+      const date = document.getElementById("date-input").value;
+
+      // Validate the date input and show an alert if it is not in YYYY-MM-DD format
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+        alert("Please enter a valid date in YYYY-MM-DD format.");
+        return;
+      }
+
+      // Define the full URL for the APOD service with the parameters
+      const full_url = `${base_url}?api_key=${api_key}&date=${date}`;
+
+      // Use the fetch API to send a GET request to the APOD service
+      fetch(full_url)
+        .then((response) => response.json()) // Parse the response as JSON
+        .then((data) => {
+          // Display the image and information from the APOD service
+          const imageContainer = document.querySelector(".image-container");
+          const infoContainer = document.querySelector(".info-container");
+
+          // Create an image or video element and set its source, alt, and class attributes
+          const mediaElement = data.media_type === "image" ? document.createElement("img") : document.createElement("video");
+          mediaElement.src = data.url;
+          mediaElement.alt = data.title;
+          mediaElement.className = "apod-media"; // Apply the CSS class
+
+          // Create a container for the media element
+          imageContainer.innerHTML = ""; // Clear previous content
+          imageContainer.appendChild(mediaElement);
+
+          // Display additional information
+          const title = document.createElement("h2");
+          title.textContent = data.title;
+
+          const explanation = document.createElement("p");
+          explanation.textContent = data.explanation;
+
+          infoContainer.innerHTML = ""; // Clear previous content
+          infoContainer.appendChild(title);
+          infoContainer.appendChild(explanation);
+        })
+        .catch((error) => {
+          // Handle any errors from the APOD service
+          console.error(error);
+        });
+    }
+
+    // JavaScript for the transition
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = link.getAttribute('href');
+        }, 700); // Adjust this delay to match your transition time
+      });
+    });
+  </script>
+</body>
+
+</html>

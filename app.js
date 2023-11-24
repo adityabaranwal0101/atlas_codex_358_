@@ -1,0 +1,254 @@
+const express =require("express");
+const app=express();
+const path=require("path");
+const bodyParser=require("body-parser");
+app.use(bodyParser.urlencoded({extended:true}));
+app.get("/",function(req,res){
+    res.sendFile(__dirname+"/index.html");
+});
+app.get("/index.html",function(req,res){
+    res.sendFile(__dirname+"/index.html");
+});
+app.get("/index.css",(req,res)=>{
+    res.sendFile(__dirname+"/index.css");
+});
+
+app.get("/website_logo.png",(req,res)=>{
+    res.sendFile(__dirname+"/website_logo.png");
+});
+app.get("/index.mp4",(req,res)=>{
+    res.sendFile(__dirname+"/index.mp4");
+});
+app.get("/about.html",(req,res)=>{
+    res.sendFile(__dirname+"/about.html");
+});
+app.get("/about.png",(req,res)=>{
+    res.sendFile(__dirname+"/about.png");
+});
+app.get("/member1.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/member1.jpg");
+});
+app.get("/member2.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/member2.jpg");
+});
+app.get("/member3.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/member3.jpeg");
+});
+app.get("/linkedin.png",(req,res)=>{
+    res.sendFile(__dirname+"/linkedin.png");
+});
+app.get("/facebook1.png",(req,res)=>{
+    res.sendFile(__dirname+"/facebook1.png");
+});
+app.get("/gmail.png",(req,res)=>{
+    res.sendFile(__dirname+"/gmail.png");
+});
+app.get("/instagram.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/instagram.jpg");
+});
+app.get("/about.css",(req,res)=>{
+    res.sendFile(__dirname+"/about.css");
+});
+app.get("/history.html",(req,res)=>{
+    res.sendFile(__dirname+"/history.html");
+});
+app.get("/history.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/history.jpeg");
+});
+app.get("/history2.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/history2.jpeg");
+});
+app.get("/history.mp4",(req,res)=>{
+    res.sendFile(__dirname+"/history.mp4");
+});
+app.get("/isro.mp4",(req,res)=>{
+    res.sendFile(__dirname+"/isro.mp4");
+});
+app.get("/roscosmos.mp4",(req,res)=>{
+    res.sendFile(__dirname+"/roscosmos.mp4");
+});
+app.get("/esa.mp4",(req,res)=>{
+    res.sendFile(__dirname+"/esa.mp4");
+});
+app.get("/nasa.mp4",(req,res)=>{
+    res.sendFile(__dirname+"/nasa.mp4");
+});
+app.get("/isro.png",(req,res)=>{
+    res.sendFile(__dirname+"/isro.png");
+});
+app.get("/esa_logo.png",(req,res)=>{
+    res.sendFile(__dirname+"/esa_logo.png");
+});
+app.get("/iss.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/iss.jpg");
+});
+app.get("/vega.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/vega.jpeg");
+});
+app.get("/ariane2.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/ariane2.jpg");
+});
+app.get("/ariane_5.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/ariane_5.jpg");
+});
+app.get("/esa_jupiter.avif",(req,res)=>{
+    res.sendFile(__dirname+"/esa_jupiter.avif");
+});
+app.get("/hubble_telescope.webp",(req,res)=>{
+    res.sendFile(__dirname+"/hubble_telescope.webp");
+});
+app.get("/aslv.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/aslv.jpeg");
+});
+app.get("/earth.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/earth.jpeg");
+});
+app.get("/earth.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/earth.jpg");
+});
+app.get("/vostok.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/vostok.jpg");
+});
+app.get("/gslv.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/gslv.jpeg");
+});
+app.get("/slv.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/slv.jpeg");
+});
+app.get("/pslv.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/pslv.jpeg");
+});
+app.get("/sslv.jpeg",(req,res)=>{
+    res.sendFile(__dirname+"/sslv.jpeg");
+});
+app.get("/isro.png",(req,res)=>{
+    res.sendFile(__dirname+"/isro.png");
+});
+app.get("/history.css",(req,res)=>{
+    res.sendFile(__dirname+"/history.css");
+});
+app.get("/roscosmos.html",(req,res)=>{
+    res.sendFile(__dirname+"/roscosmos.html");
+});
+app.get("/roscosmos-logo.png",(req,res)=>{
+    res.sendFile(__dirname+"/roscosmos-logo.png");
+});
+
+app.get("/roscosmos.css",(req,res)=>{
+    res.sendFile(__dirname+"/roscosmos.css");
+});
+app.get("/nasa.html",(req,res)=>{
+    res.sendFile(__dirname+"/nasa.html");
+});
+app.get("/nasa.css",(req,res)=>{
+    res.sendFile(__dirname+"/nasa.css");
+});
+app.get("/esa.html",(req,res)=>{
+    res.sendFile(__dirname+"/esa.html");
+});
+app.get("/isro.html",(req,res)=>{
+    res.sendFile(__dirname+"/isro.html");
+});
+app.get("/isro.css",(req,res)=>{
+    res.sendFile(__dirname+"/isro.css");
+});
+app.get("/esa.css",(req,res)=>{
+    res.sendFile(__dirname+"/esa.css");
+});
+app.get("/apod.html",(req,res)=>{
+    res.sendFile(__dirname+"/apod.html");
+});
+app.get("/apod.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/apod.jpg");
+});
+app.get("/iss-tracker.html",(req,res)=>{
+    res.sendFile(__dirname+"/iss-tracker.html");
+});
+app.get("/iss-tracker.css",(req,res)=>{
+    res.sendFile(__dirname+"/iss-tracker.css");
+});
+app.get("/iss-tracker.jpg",(req,res)=>{
+    res.sendFile(__dirname+"/iss-tracker.jpg");
+});
+app.get("/iss.html",(req,res)=>{
+    res.sendFile(__dirname+"/iss.html");
+});
+app.get("/iss.css",(req,res)=>{
+    res.sendFile(__dirname+"/iss.css");
+});
+app.get("/iss.png",(req,res)=>{
+    res.sendFile(__dirname+"/iss.png");
+});
+app.get("/iss.mp4",(req,res)=>{
+    res.sendFile(__dirname+"/iss.mp4");
+    
+});
+app.get("/iss_logo.svg",(req,res)=>{
+    res.sendFile(__dirname+"/iss_logo.svg");
+});
+app.get("/stellar_worlds.html",(req,res)=>{
+    res.sendFile(__dirname+"/stellar_worlds.html");
+});
+app.get("/stellar_worlds.png",(req,res)=>{
+    res.sendFile(__dirname+"/stellar_worlds.png");
+});
+app.get("/livefeed.html",(req,res)=>{
+    res.sendFile(__dirname+"/livefeed.html");
+});
+app.get("/livefeed.css",(req,res)=>{
+    res.sendFile(__dirname+"/livefeed.css");
+});
+app.get("/live_feed.png",(req,res)=>{
+    res.sendFile(__dirname+"/live_feed.png");
+});
+app.get("/space_agencies.html",(req,res)=>{
+    res.sendFile(__dirname+"/space_agencies.html");
+});
+app.get("/space_agencies.css",(req,res)=>{
+    res.sendFile(__dirname+"/space_agencies.css");
+});
+app.get("/space_agencies.png",(req,res)=>{
+    res.sendFile(__dirname+"/space_agencies.png");
+});
+app.get("/quiz_logo.png",(req,res)=>{
+    res.sendFile(__dirname+"/quiz_logo.png");
+});
+app.get("/questions.html",(req,res)=>{
+    res.sendFile(__dirname+"/questions.html");
+});
+app.get("/quiz.html",(req,res)=>{
+    res.sendFile(__dirname+"/quiz.html");
+});
+app.get("/style.css",(req,res)=>{
+    res.sendFile(__dirname+"/style.css");
+});
+app.get("/tilt.min.js",(req,res)=>{
+    res.sendFile(__dirname+"/tilt.min.js");
+});
+app.get("/script.js",(req,res)=>{
+    res.sendFile(__dirname+"/script.js");
+});
+app.get("/quiz.js",(req,res)=>{
+    res.sendFile(__dirname+"/quiz.js");
+});
+app.get("/README.md",(req,res)=>{
+    res.sendFile(__dirname+"/README.md");
+});
+app.get("/jquery-3.5.1.min.js",(req,res)=>{
+    res.sendFile(__dirname+"//jquery-3.5.1.min.js");
+});
+app.get("/comment1.html",(req,res)=>{
+    res.sendFile(__dirname+"/comment1.html");
+});
+
+app.get("/comment1.css",(req,res)=>{
+    res.sendFile(__dirname+"/comment1.css");
+});
+app.get("/comment.mp4",(req,res)=>{
+    res.sendFile(__dirname+"/comment.mp4");
+});
+
+app.listen(3212,()=>
+{
+    console.log("server chalu ho gya");
+});

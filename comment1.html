@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="comment1.css">
+  <title>Comment Box</title>
+</head>
+<body>
+    <!--<div class="image-background">
+        <img src="galactic background.jpg" id="photo">
+      
+      </div>-->
+      <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav> 
+    
+    <div class="video-background">
+        <video autoplay muted loop id="videoBG">
+            <source src="comment.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+      </div>
+      
+    <div class="container">
+        <div class="head"><h1><b>Post a feedback</b></h1></div>
+        <div><h3><span id="commentCount">0</span> Comments</h3></div>
+        <div class="text"><p><b>We are happy to hear from you</b></p></div>
+         
+        <div class="commentbox">
+            <div class="content">
+                <!--<h2>Comment as: </h2>
+                <input type="text" value="Anonymous" class="user"> -->
+                <h2>Comment as: </h2>
+                <br>
+                <input type="text" value="Anonymous" class="user">
+                <br>
+                <div class="commentinput">
+                    <input type="text" placeholder="Enter comment"  class="usercomment" >
+                    <div class="emoji-list">
+                        <button onclick="insertEmoji('😊')">😊</button>
+                        <button onclick="insertEmoji('👍')">👍</button>
+                        <button onclick="insertEmoji('❤️')">❤️</button>
+                        <button onclick="insertEmoji('🤣')">🤣</button>
+
+                        <!-- Add more emoji buttons as needed -->
+                    </div>
+                    <br>
+                    <div class="buttons">
+                        <button type="submit"  disabled id="publish" class="button">Publish</button>
+                        <!--<div class="notify">
+                            <input type="checkbox" class="notifyinput"><span>Notify me</span>
+                        </div>-->
+                    </div>
+                </div>
+                <p class="policy">This site is protected by <a href="#">private policy</a></p>
+            </div>
+        </div>
+        
+        <div class="comments"></div>
+    </div>
+
+    <script>
+        "use strict";
+
+        const userId = {
+            name: null,
+            identity: null,
+            /* image: null,*/
+            message: null,
+            date: null,
+            upvotes: 0,
+            downvotes: 0
+        };
+
+        const userComment = document.querySelector(".usercomment");
+        const publishBtn = document.querySelector("#publish");
+        const comments = document.querySelector(".comments");
+        const userName = document.querySelector(".user");
+        const commentCount = document.getElementById("commentCount");
+
+        // Load comments from local storage when the page loads
+        loadComments();
+
+        userComment.addEventListener("input", e => {
+            if (!userComment.value) {
+                publishBtn.setAttribute("disabled", "disabled");
+            } else {
+                publishBtn.removeAttribute("disabled");
+            }
+        });
+
+        function addPost() {
+            if (!userComment.value) return;
+
+            userId.name = userName.value;
+            if (userId.name == "Anonymous") {
+                userId.identity = false;
+                /*userId.image = "aslv.jpeg";*/
+            } else {
+                userId.identity = true;
+                /*userId.image = "earth.jpg";*/
+            }
+
+            userId.message = userComment.value;
+            userId.date = new Date().toLocaleString();
+            
+            // Create comment object
+            const comment = {
+                name: userId.name,
+                identity: userId.identity,
+                /*image: userId.image,*/
+                message: userId.message,
+                date: userId.date,
+                upvotes: userId.upvotes,
+                downvotes: userId.downvotes
+            };
+
+            // Retrieve existing comments from local storage
+            const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
+
+            // Add the new comment
+            existingComments.unshift(comment);
+
+            // Save updated comments to local storage
+            localStorage.setItem("comments", JSON.stringify(existingComments));
+
+            // Update the comment count
+            updateCommentCount();
+
+            // Display the comments
+            displayComments();
+            
+            // Clear the comment input
+            userComment.value = "";
+        }
+
+        function displayComments() {
+            // Clear the existing comments
+            comments.innerHTML = "";
+
+            // Retrieve comments from local storage
+            const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
+
+            // Display each comment
+            existingComments.forEach(comment => {
+                let commentHtml =
+                    `<div class="parents">
+
+                        <div>
+                            <h3>${comment.name}</h3>
+                            <b>${comment.message}</b>
+                            <br>
+                            <h4><span class="date">${comment.date}</span><h4>
+                            <div class="votes">
+                                <button onclick="upvote(${existingComments.indexOf(comment)})">Upvote (${comment.upvotes})</button>
+                                <button onclick="downvote(${existingComments.indexOf(comment)})">Downvote (${comment.downvotes})</button>
+                            </div>
+                            <br>
+                            <hr>
+                        </div>    
+                    </div>`;
+                comments.innerHTML += commentHtml;
+            });
+        }
+
+        function loadComments() {
+            // Load comments from local storage
+            displayComments();
+            
+            // Update the comment count
+            updateCommentCount();
+        }
+
+        function updateCommentCount() {
+            // Update the comment count
+            const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
+            commentCount.textContent = existingComments.length;
+        }
+
+        function upvote(index) {
+            const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
+            existingComments[index].upvotes++;
+            localStorage.setItem("comments", JSON.stringify(existingComments));
+            displayComments();
+        }
+
+        function downvote(index) {
+            const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
+            existingComments[index].downvotes++;
+            localStorage.setItem("comments", JSON.stringify(existingComments));
+            displayComments();
+        }
+        function insertEmoji(emoji) {
+    const cursorPosition = userComment.selectionStart;
+    const textBefore = userComment.value.substring(0, cursorPosition);
+    const textAfter = userComment.value.substring(cursorPosition);
+
+    userComment.value = `${textBefore}${textAfter}${emoji}`;
+
+    // Trigger input event to enable/disable the "Publish" button
+    userComment.dispatchEvent(new Event("input"));
+}
+
+        publishBtn.addEventListener("click", addPost);
+    </script>
+</body>
+</html>

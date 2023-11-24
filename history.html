@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>galactic odyssey</title>
+        <link rel="stylesheet"href="history.css">
+        <style>
+            </style>
+    </head>
+<body>
+
+
+<div class="header">
+  <h2>Galactic Odyssey</h2>
+  </div>
+  <nav class="navbar">
+    <ul class="navlist">
+      <li class="navitem"><a href="index.html">HOME</a></li>
+      <li class="navitem dropdown">
+        <a href="space_agencies.html" class="dropbtn">SPACE AGENCIES</a>
+        <ul class="dropdown-content">
+          <li><a href="nasa.html">NASA</a></li>
+          <li><a href="isro.html">ISRO</a></li>
+          <li><a href="esa.html">ESA</a></li>
+          <li><a href="roscosmos.html">ROSCOSMOS</a></li>
+        </ul>
+      </li>
+      <li class="navitem"><a href="iss.html">ISS</a></li>
+      </ul>
+  </nav>
+<div class="video-background">
+  <video autoplay muted loop id="videoBG">
+      <source src="history.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
+</div>
+<div class="data">
+<div class="intro">
+  <h3><b>Welcome: Exploring the Cosmos Through Space Missions</b></h3>
+  <div id="intro1">
+    Welcome to the Atlas Codex's Galactic Odyssey webpage, where we journey through the extraordinary exploration
+    of the cosmos. Space missions, led by agencies like NASA and ISRO, have significantly deepened our
+    understanding of the universe. These missions have uncovered the secrets of celestial bodies, probed 
+    the possibilities of life beyond Earth, and provided us with a profound perspective on our own planet.
+    Join us as we celebrate the pioneers of space exploration and their captivating missions, reminding us 
+    of the endless wonders that lie among the stars.
+    
+  </div>
+
+</div>
+<div class="data">
+  <table>
+    <tr>
+      <td>
+        <div class="adiinfo">
+          <h3><b>International Space Station</b></h3>
+          The station was designed between 1984 and 1993. Elements of the station were in construction 
+          throughout the US, Canada, Japan, and Europe beginning in the late 1980s.
+          The International Space Station Program brings together international flight crews, multiple 
+          launch vehicles, globally distributed launch and flight operations, training, engineering, and
+           development facilities, communications networks, and the international scientific research community.
+        </div>
+        </td>
+        <td>
+        <img id ="aditya"src="https://images-assets.nasa.gov/image/s130e006575/s130e006575~large.jpg?w=1920&h=1311&fit=crop&crop=faces%2Cfocalpoint">
+        </td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img id="chandra" src="https://www.isro.gov.in/media_isro/image/index/Chandrayaan3/R_img2.png.webp">
+        </td>
+        <td><div class="chandrainfo">
+          <h3><b>Chandrayaan 3</b></h3>
+          Chandrayaan-3 is a follow-on mission to Chandrayaan-2 to demonstrate end-to-end capability in safe landing and roving on
+           the lunar surface. It consists of Lander and Rover configuration. It will be launched by LVM3 from SDSC SHAR, Sriharikota.
+            The propulsion module will carry the lander and rover configuration till 100 km lunar orbit. The propulsion module has Spectro-polarimetry 
+            of Habitable Planet Earth (SHAPE) payload to study the spectral and Polari metric measurements of Earth from the lunar orbit.
+        </div>
+          </td>
+      
+    </tr>
+    <tr>
+      <td>
+        <div class="adiinfo">
+          <h3><b>Parker Solar Probe</b></h3>
+          NASA's Parker Solar Probe will revolutionize our understanding of the Sun. The spacecraft is gradually 
+          orbiting closer to the Sun’s surface than any before it – well within the orbit of Mercury. Flying into
+           the outermost part of the Sun's atmosphere, the corona, for the first time, Parker Solar Probe is 
+           collecting measurements and images to expand our knowledge of the origin and evolution of solar wind. 
+           It also makes critical contributions to forecasting changes in the space environment that affect life
+          and technology on Earth.
+        </div>
+        </td>
+        <td>
+        <img id ="parker"src="https://c02.purpledshub.com/uploads/sites/48/2022/07/solar-orbiter-parker-solar-probe-2a13135.jpg">
+        </td>
+      
+    </tr>
+  </table>
+</div>
+</div>
+<script>
+  // JavaScript for the transition
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = link.getAttribute('href');
+      }, 500); // Adjust this delay to match your transition time
+    });
+  });
+</script>
+</body>
+</html>
+

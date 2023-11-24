@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ISS</title>
+        <link rel="stylesheet"href="iss.css">
+        
+    </head>
+<body>
+<div class="header">
+  <img src="iss_logo.svg" id="logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="history.html">GALACTIC ODYSSEY</a></li>
+      <li><a href="isro.html">ISRO</a></li>
+      <li><a href="nasa.html">NASA</a></li>
+      <li><a href="roscosmos.html">ROSCOSMOS</a></li>
+      
+      <li><a href="esa.html">ESA</a></li>
+      </ul>
+</nav> 
+
+<div class="video-background">
+  <video autoplay muted loop id="videoBG">
+      <source src="iss.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
+</div>
+  <div class="intro">
+      <h3><b>"Embarking on a Journey: The International Space Station (ISS)"</b></h3>
+      <div class="intro1">
+          "Embark on an incredible journey with the International Space Station (ISS), a marvel of human engineering and
+          international collaboration. Orbiting our planet at speeds of over 28,000 kilometers per hour, the ISS serves
+          as a microgravity laboratory, a home for astronauts, and a symbol of unity in exploring the cosmos. Join us as we
+          uncover the fascinating story and significance of this spacefaring habitat."
+      </div>
+  </div>
+
+  <div class="data">
+      <h3><b>History of the ISS</b></h3>
+      <ul>
+          <li>
+              <h4>Collaborative Inception</h4>
+              <p>The ISS is a result of collaboration between NASA, Roscosmos (Russia), ESA (European Space Agency), JAXA (Japan Aerospace Exploration Agency), and CSA (Canadian Space Agency).</p>
+          </li>
+          <li>
+              <h4>First Module Launch (1998)</h4>
+              <p>The first module, Zarya, was launched into orbit in 1998, marking the initial phase of assembling the ISS in space.</p>
+          </li>
+          <li>
+              <h4>Continuous Assembly</h4>
+              <p>Over the years, additional modules and components were added during multiple space shuttle and robotic missions, creating the complete ISS structure.</p>
+          </li>
+      </ul>
+
+      <h3><b>Present Information</b></h3>
+      <ul>
+          <li>
+              <h4>International Collaboration</h4>
+              <p>The ISS continues to represent one of the most significant examples of international cooperation in space exploration, with contributions from multiple countries.</p>
+          </li>
+          <li>
+              <h4>Orbital Laboratory</h4>
+              <p>The ISS serves as an orbital laboratory where scientific research is conducted in microgravity conditions, leading to advancements in various fields.</p>
+          </li>
+          <li>
+              <h4>Living Space for Astronauts</h4>
+              <p>Astronauts from different nations live and work on the ISS, conducting experiments, maintaining systems, and contributing to a continuous human presence in space.</p>
+          </li>
+          <li>
+              <h4>Technological Innovations</h4>
+              <p>The ISS showcases cutting-edge space technologies and serves as a testbed for innovations that benefit both space exploration and life on Earth.</p>
+          </li>
+          <li>
+              <h4>Future Endeavors</h4>
+              <p>Plans for the ISS include continued scientific research, technology demonstrations, and preparation for future deep-space exploration missions.</p>
+          </li>
+      </ul>
+  </div>
+  <script>
+    // JavaScript for the transition
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = link.getAttribute('href');
+        }, 500); // Adjust this delay to match your transition time
+      });
+    });
+  </script>
+</body>
+</html>
+
+

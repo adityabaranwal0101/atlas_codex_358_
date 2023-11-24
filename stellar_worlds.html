@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+    padding: 0;
+    background-image: url('stellar_worlds.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    margin-bottom:300px;
+    }
+    .heading{
+        font-size:24px;
+        margin-left:20%;
+        width:60%;
+        color:burlywood;
+        font-family: Snell Roundhand, cursive;
+        margin-top:-20px;
+    }
+    .label{
+      color:burlywood;
+    }
+    nav {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    height:50px;
+    padding: 10px;
+    font-size:24px;
+    margin-top: -10px;
+    
+    width:100%;
+  
+    margin-left:80%;
+    margin-bottom:-17px;  
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+  }
+  
+  nav li {
+    float: left;
+    
+  }
+  
+  nav li a {
+    display: block;
+    color:burlywood; /* Text color */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+  }
+  
+  nav li a:hover {
+    background-color:palevioletred; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+  }
+  
+  /* Optional: Style for the active page link */
+  nav li.active a {
+    background-color: #4CAF50; /* Background color for the active link */
+    color: #fff; /* Text color for the active link */
+  }
+    #detailsContainer {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color:green;
+    }
+
+    h3 {
+      color:green;
+    }
+
+    p {
+      margin: 0;
+      color: palevioletred;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    input {
+      padding: 8px;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="heading">
+    <h1><b>STELLAR WORLDS</b></h1>
+    </div>
+    <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          </ul>
+    </nav> 
+    <div id="text"> 
+<!-- Create an HTML input box for the user to enter the ID of the celestial body -->
+<div class="label">
+<label for="bodyId">Enter Celestial Body ID:</label>
+</div>
+<input type="text" id="bodyId" placeholder="e.g., earth">
+<button onclick="fetchBodyDetails()">Get Details</button>
+
+<!-- Create HTML elements to display the details -->
+<div id="detailsContainer">
+  <h2>Celestial Body Details</h2>
+  <p id="bodyIdOutput"></p>
+  <p id="bodyNameOutput"></p>
+  <p id="isPlanetOutput"></p>
+  <p id="semimajorAxisOutput"></p>
+  <p id="perihelionOutput"></p>
+  <p id="aphelionOutput"></p>
+  <p id="eccentricityOutput"></p>
+  <p id="inclinationOutput"></p>
+  <p id="massOutput"></p>
+  <p id="volOutput"></p>
+  <p id="densityOutput"></p>
+  <p id="gravityOutput"></p>
+  <p id="escapeOutput"></p>
+  <p id="meanRadiusOutput"></p>
+  <p id="equaRadiusOutput"></p>
+  <p id="polarRadiusOutput"></p>
+  <p id="flatteningOutput"></p>
+  <p id="dimensionOutput"></p>
+  <p id="sideralOrbitOutput"></p>
+  <p id="sideralRotationOutput"></p>
+  <p id="aroundPlanetOutput"></p>
+  <p id="discoveredByOutput"></p>
+  <p id="discoveryDateOutput"></p>
+  <p id="alternativeNameOutput"></p>
+  <p id="axialTiltOutput"></p>
+  <p id="avgTempOutput"></p>
+  <p id="mainAnomalyOutput"></p>
+  <p id="argPeriapsisOutput"></p>
+  <p id="longAscNodeOutput"></p>
+  <p id="bodyTypeOutput"></p>
+  <p id="relOutput"></p>
+  <div id="moonsContainer">
+    <h3>Moons</h3>
+    <ul id="moonsOutput"></ul>
+  </div>
+</div>
+
+<script>
+  const apiUrl = 'https://api.le-systeme-solaire.net/rest';
+
+  function fetchBodyDetails() {
+    const bodyId = document.getElementById('bodyId').value;
+    const bodyDetailsUrl = `${apiUrl}/bodies/${bodyId}`;
+
+    fetch(bodyDetailsUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(`Failed to fetch: ${response.statusText}`);
+        }
+      })
+      .then((bodyData) => {
+        document.getElementById('bodyIdOutput').innerText = `ID: ${bodyData.id}`;
+        document.getElementById('bodyNameOutput').innerText = `Name: ${bodyData.englishName}`;
+        document.getElementById('isPlanetOutput').innerText = `Is Planet: ${bodyData.isPlanet}`;
+        document.getElementById('semimajorAxisOutput').innerText = `Semimajor Axis: ${bodyData.semimajorAxis}`;
+        document.getElementById('perihelionOutput').innerText = `Perihelion: ${bodyData.perihelion}`;
+        document.getElementById('aphelionOutput').innerText = `Aphelion: ${bodyData.aphelion}`;
+        document.getElementById('eccentricityOutput').innerText = `Eccentricity: ${bodyData.eccentricity}`;
+        document.getElementById('inclinationOutput').innerText = `Inclination: ${bodyData.inclination}`;
+        document.getElementById('massOutput').innerText = `Mass: ${bodyData.mass.massValue} x 10^${bodyData.mass.massExponent} kg`;
+        document.getElementById('volOutput').innerText = `Volume: ${bodyData.vol.volValue} x 10^${bodyData.vol.volExponent} km³`;
+        document.getElementById('densityOutput').innerText = `Density: ${bodyData.density} g/cm³`;
+        document.getElementById('gravityOutput').innerText = `Gravity: ${bodyData.gravity} m/s²`;
+        document.getElementById('escapeOutput').innerText = `Escape Velocity: ${bodyData.escape} km/s`;
+        document.getElementById('meanRadiusOutput').innerText = `Mean Radius: ${bodyData.meanRadius} km`;
+        document.getElementById('equaRadiusOutput').innerText = `Equatorial Radius: ${bodyData.equaRadius} km`;
+        document.getElementById('polarRadiusOutput').innerText = `Polar Radius: ${bodyData.polarRadius} km`;
+        document.getElementById('flatteningOutput').innerText = `Flattening: ${bodyData.flattening}`;
+        document.getElementById('dimensionOutput').innerText = `Dimension: ${bodyData.dimension}`;
+        document.getElementById('sideralOrbitOutput').innerText = `Sideral Orbit: ${bodyData.sideralOrbit} days`;
+        document.getElementById('sideralRotationOutput').innerText = `Sideral Rotation: ${bodyData.sideralRotation} hours`;
+
+        // Display aroundPlanet information
+        const aroundPlanetOutput = document.getElementById('aroundPlanetOutput');
+        if (bodyData.aroundPlanet) {
+          aroundPlanetOutput.innerText = `Around Planet: ${bodyData.aroundPlanet.planet} (${bodyData.aroundPlanet.rel})`;
+        } else {
+          aroundPlanetOutput.innerText = 'Not orbiting any planet';
+        }
+
+        document.getElementById('discoveredByOutput').innerText = `Discovered By: ${bodyData.discoveredBy}`;
+        document.getElementById('discoveryDateOutput').innerText = `Discovery Date: ${bodyData.discoveryDate}`;
+        document.getElementById('alternativeNameOutput').innerText = `Alternative Name: ${bodyData.alternativeName}`;
+        document.getElementById('axialTiltOutput').innerText = `Axial Tilt: ${bodyData.axialTilt} degrees`;
+        document.getElementById('avgTempOutput').innerText = `Average Temperature: ${bodyData.avgTemp} K`;
+        document.getElementById('mainAnomalyOutput').innerText = `Main Anomaly: ${bodyData.mainAnomaly}`;
+        document.getElementById('argPeriapsisOutput').innerText = `Argument of Periapsis: ${bodyData.argPeriapsis}`;
+        document.getElementById('longAscNodeOutput').innerText = `Longitude of Ascending Node: ${bodyData.longAscNode}`;
+        document.getElementById('bodyTypeOutput').innerText = `Body Type: ${bodyData.bodyType}`;
+        document.getElementById('relOutput').innerText = `Rel: ${bodyData.rel}`;
+
+        // Display moons if available
+        const moonsContainer = document.getElementById('moonsOutput');
+        moonsContainer.innerHTML = '';
+        if (bodyData.moons && bodyData.moons.length > 0) {
+          bodyData.moons.forEach((moon) => {
+            const li = document.createElement('li');
+            li.innerText = `Moon: ${moon.moon}, Rel: ${moon.rel}`;
+            moonsContainer.appendChild(li);
+          });
+        } else {
+          const li = document.createElement('li');
+          li.innerText = 'None';
+          moonsContainer.appendChild(li);
+        }
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  }
+  // JavaScript for the transition
+  document.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', e => {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                  window.location.href = link.getAttribute('href');
+                }, 500); // Adjust this delay to match your transition time
+              });
+            });
+</script>
+
+</body>
+</html>

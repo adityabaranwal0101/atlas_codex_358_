@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header{
+width:100%;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    background: #f2f2f2;
+
+}
+.container {
+    background:white;
+    color:rgb(243, 144, 13);
+    padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 30%;
+    margin-left: 20%;
+    box-shadow: 0 0 5px #000;
+    position: relative;
+    background-image:url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3B4MTU4NDgwMy1pbWFnZS1rd3Z4dmxjai5qcGc.jpg');
+    
+}
+.head {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.text {
+    margin: 10px 0;
+    font-family: sans-serif;
+    font-size: 0.9em;
+
+}
+
+.commentbox {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.commentbox > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.content {
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.user {
+    border: none;
+    outline: none;
+    margin: 0px 0;
+    color: #808080;
+    margin-left: 0px;
+    padding: 10px;
+    border-bottom: 2px solid blue;
+}
+
+.commentinput > input {
+    border: none;
+    padding: 10px;
+    padding-left: 0;
+    outline: none;
+    border-bottom: 2px solid blue;
+    margin-bottom: 10px;
+    width: 95%;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: red;
+}
+
+.button {
+    padding: 15px 25px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #ec0c0c;
+    background-color: #0c32ef;
+    border: none;
+    border-radius: 15px;
+    
+  }
+  
+  .button:hover {background-color: palevioletred}
+  
+  .button:active {
+    background-color: #563e8e;
+    box-shadow: 0 5px #66666660;
+    transform: translateY(4px);
+  }
+
+.buttons button {
+    padding: 5px 10px;
+    background:#97233F;
+    color:wheat;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.buttons button.abled {
+    background: blue;
+    color: #fff ;
+}
+
+.policy {
+    margin: 20px 0;
+    font-size: 0.8em;
+    font-family: Arial, sans-serif;
+    color: #808080;
+}
+
+.policy a {
+    text-decoration: none;
+    color: blue;
+}
+
+.notify {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+.notify > input {
+    margin-right: 5px;
+}
+.parents{
+    font-size:16px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(232, 154, 53);
+}
+.video-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+  
+  #videoBG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .content {
+    width: 700px;
+    z-index: 1;
+    /* Add some padding or margin to separate the content from the video background */
+    padding: 20px;
+  }
+  
+  body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+  }
+
+  .photo{
+    width: fit-content;
+    background-repeat: repeat-y;
+  }
+
+  .image-background{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+    background-repeat: repeat-y;
+    
+}
+
+nav {
+    background-image:url('https://cdn.pixabay.com/photo/2013/01/05/20/00/milky-way-74005_1280.jpg'); /* Background image */
+    overflow: hidden;
+    margin-top: -40%;
+    width:5%;
+    font-size:20px;
+    margin-left: 10%;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav li {
+    float: left;
+  }
+  
+  nav li a {
+    display: block;
+    color: #fff; /* Text color */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+  }
+  
+  nav li a:hover {
+    background-color:teal; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+  }
+  
+  /* Optional: Style for the active page link */
+  nav li.active a {
+    background-color: #4CAF50; /* Background color for the active link */
+    color: #fff; /* Text color for the active link */
+  }
+  
+  .container { 
+    transition: all 1s ease-in-out; 
+    }
+    
+    .container:hover { 
+    transform: scale(0.9); 
+    }
+
+    .usercomment { 
+        transition: all 1s ease-in-out; 
+        }
+        
+        .usercomment:hover { 
+        transform: scale(1.1); 
+        }
+
+    .user { 
+         transition: all 1s ease-in-out; 
+            }
+            
+     .user:hover { 
+            transform: scale(1.1); 
+            }
+.intro {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    color: green;
+
+}
+    

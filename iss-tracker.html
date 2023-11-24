@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISS Tracker</title>
+  <!-- Remove the integrity attribute -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="iss-tracker.css"/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="header">
+  <h1><b>ISS Tracker</b></h1>
+  </div>
+  <table><tr><td>
+  <div id="issLocation">
+    <p>Current Location of the International Space Station:</p>
+    <p id="latitude">Latitude: Loading...</p>
+    <p id="longitude">Longitude: Loading...</p>
+  </div></td>
+  <td>
+  <nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="iss.html">ISS</a></li>
+    </ul></td>
+</nav></tr>
+</table>
+  <div id="map" style="height: 400px;"></div>
+  <div id="additionalInfo">
+    <p>Did you know?</p>
+    <p>The International Space Station (ISS) travels at an average speed of about 28,000 kilometers (17,500 miles) per hour, orbiting the Earth approximately every 90 minutes.</p>
+    <p>It serves as a microgravity and space environment research laboratory in which scientific research is conducted in astrobiology, astronomy, meteorology, physics, and other fields.</p>
+  </div>
+  <script>
+    // Define the URL for the ISS endpoint
+    const url = "https://api.wheretheiss.at/v1/satellites/25544";
+
+    // Initialize Leaflet map
+    const map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    // Function to update the ISS location and orbit on the webpage
+    function updateISSLocation() {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          // Update the coordinates on the webpage
+          document.getElementById('latitude').textContent = `Latitude: ${data.latitude}`;
+          document.getElementById('longitude').textContent = `Longitude: ${data.longitude}`;
+
+          // Update the ISS orbit on the map
+          const issMarker = L.marker([data.latitude, data.longitude]).addTo(map);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+
+    // Initial update
+    updateISSLocation();
+
+    // Update the ISS location and orbit every 10 seconds
+    setInterval(updateISSLocation, 10000);
+    // JavaScript for the transition
+  document.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', e => {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                  window.location.href = link.getAttribute('href');
+                }, 500); // Adjust this delay to match your transition time
+              });
+            });
+  </script>
+</body>
+</html>

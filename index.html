@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Atlas_Codex_Home</title>
+        
+        <link rel="stylesheet"href="index.css">
+        <style>
+            b{
+              font-family: Copperplate, Papyrus, fantasy;
+            }
+            </style>
+        </head>
+    <body>
+        <div id="header">
+            
+            <div class="container">
+                
+                    <img src="website_logo.png" class="logo">
+                    <div id="slogan">
+                        <h3><b>"Discovering the Universe, One Frontier at a Time."</b></h3>
+                    </div>
+                    <nav class="navbar">
+                        <ul class="navlist">
+                          <li class="navitem"><a href="index.html">HOME</a></li>
+                          <li class="navitem"><a href="quiz.html">BRAIN FREEZE</a></li>
+                          <li class="navitem"><a href="history.html">GALACTIC ODYSSEY</a></li>
+                          <li class="navitem dropdown">
+                            <a href="livefeed.html" class="dropbtn">API  LIVE FEED</a>
+                            <ul class="dropdown-content">
+                              <li><a href="apod.html">APOD</a></li>
+                              <li><a href="iss-tracker.html">ISS TRACKER</a></li>
+                              <li><a href="stellar_worlds.html">STELLAR WORLDS</a></li>
+                              </ul>
+                          </li>
+                          <li class="navitem"><a href="comment1.html">FEEDBACK</a></li>
+                          <li class="navitem"><a href="about.html">ABOUT</a></li>
+                          
+                        </ul>
+                      </nav>
+                      
+                </div>
+                <div class="video-background">
+                    <video autoplay muted loop id="videoBG">
+                        <source src="index.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <br>
+                <div class="header-text">
+                    <b>
+                    In the world of Greek mythology, the stars
+                    shone as divine sparks , and the Titan Atlas 
+                    bore the celestial spheres on his mighty shoulders.
+                    Atop Atlas's shoulders lay the 'Atlas Codex 358', an 
+                    ancient tome holding the universe 's secrets.
+                    Users can embark on a cosmic odyssey, navigating the digital pages of the Atlas Codex
+                    to explore the cosmos, its wonders , and the legendary
+                    tales of space voyages.
+                </b>
+                </div>
+                </div> 
+            </div>  
+            <tr>
+        </div>
+        <script>
+            // JavaScript for the transition
+            document.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', e => {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                  window.location.href = link.getAttribute('href');
+                }, 500); // Adjust this delay to match your transition time
+              });
+            });
+          </script>
+        </body>
+</html>

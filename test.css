@@ -1,0 +1,73 @@
+/* CSS code */
+/* The navigation menu */
+.navbar {
+    background-color: #333;
+  }
+  
+  /* The navigation list */
+  .navlist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* The navigation items */
+  .navitem {
+    position: relative;
+  }
+  
+  /* The navigation links */
+  .navitem a {
+    display: block;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* The dropdown button */
+  .dropbtn {
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  /* Add a red background color to navigation links on hover */
+  .navitem a:hover, .dropdown:hover > .dropbtn {
+    background-color: red;
+  }
+  
+  /* Style the dropdown content - positioned absolute */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: red;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  /* Style the dropdown links */
+  .dropdown-content li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Add a grey background color on hover */
+  .dropdown-content li a:hover {
+    background-color: #eee;
+    color: black;
+  }
+  
+  /* When you move the mouse over the dropdown container, open the dropdown content */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  

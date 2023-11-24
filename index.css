@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.header{
+  width:100%;
+}
+.logo{
+    width:25%;
+    height:25%;
+    margin-left:40%;
+    margin-bottom:-3%;
+}
+#slogan{
+    color:whitesmoke;
+    
+    margin-left:40%;
+   
+}
+/* CSS code */
+/* The navigation menu */
+.navbar {
+  width:100%;
+  background-image:url('https://steamuserimages-a.akamaihd.net/ugc/789730529906031530/250CD9F7C2FAD088A6C0643A59FEB2B36AC7E2B0/');
+}
+
+/* The navigation list */
+.navlist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  
+}
+
+/* The navigation items */
+.navitem {
+  position: relative;
+}
+
+/* The navigation links */
+.navitem a {
+  display: block;
+  font-size: 24px;
+  color: burlywood;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown button */
+.dropbtn {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navigation links on hover */
+.navitem a:hover, .dropdown:hover > .dropbtn {
+  background-color: teal;
+}
+
+/* Style the dropdown content - positioned absolute */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: turquoise;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Style the dropdown links */
+.dropdown-content li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+/* Add a grey background color on hover */
+.dropdown-content li a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+/* When you move the mouse over the dropdown container, open the dropdown content */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#header{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+.header-text{
+    color:burlywood;
+    margin-top:70px;
+    margin-left:20%;
+    width:60%;
+    
+    font-size:27px;
+   
+}
+.social img{
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    align-items: center;
+    margin-top: 50px;
+    border-radius: 12px;
+    border: none;
+   }
+   body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+  }
+    
+
+.video-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#videoBG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.content {
+    width: 700px;
+    z-index: 1;
+    /* Add some padding or margin to separate the content from the video background */
+    padding: 20px;
+}
+body {
+    opacity: 1;
+    transition: opacity 2.5s ease-in-out;
+  }
+  .fade-out {
+    opacity: 0;
+  }
+  
